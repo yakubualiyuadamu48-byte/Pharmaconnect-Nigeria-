@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b6b50">
+  <meta name="description" content="PharmaConnect Nigeria — learning resources for pharmacy and pharmaceutical technician students.">
+  <title>PharmaConnect Nigeria | Learn Pharmacy Together</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="PharmaConnect Nigeria home">
+    <span class="brand-mark">✚</span><span><b>PharmaConnect</b><small>NIGERIA</small></span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <nav id="mainNav">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#courses" class="nav-link">Courses</a>
+    <a href="#notes" class="nav-link">Study Notes</a>
+    <a href="#quiz" class="nav-link">Quiz</a>
+    <a href="#about" class="nav-link">About</a>
+  </nav>
+  <button class="install-btn" id="installBtn" hidden>Install app</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <span class="eyebrow">YOUR PHARMACY LEARNING SPACE</span>
+    <h1>Learn today.<br><span>Care better tomorrow.</span></h1>
+    <p>A growing learning hub for Pharmacy and Pharmaceutical Technician students in Nigeria. Explore study topics, revise with quizzes, and build your knowledge step by step.</p>
+    <div class="hero-actions"><a class="button primary" href="#courses">Explore courses <span>→</span></a><a class="button secondary" href="#quiz">Try a quick quiz</a></div>
+    <div class="hero-note"><span class="pulse"></span> Built for learners • Mobile-friendly • Free starter version</div>
+  </div>
+  <div class="hero-visual" aria-label="Pharmacy learning illustration">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="medical-card card-top"><span class="mini-icon">✚</span><div><b>Learn in steps</b><small>One topic at a time</small></div></div>
+    <div class="book-illustration"><div class="book-page page-left"></div><div class="book-page page-right"></div><div class="book-cross">✚</div><div class="book-lines"><i></i><i></i><i></i></div></div>
+    <div class="medical-card card-bottom"><span class="mini-icon green">✓</span><div><b>Practice & revise</b><small>Short knowledge checks</small></div></div>
+    <div class="floating-pill pill-a"></div><div class="floating-pill pill-b"></div>
+  </div>
+</section>
+
+<section class="stats wrap">
+  <div><strong>02</strong><span>Learning pathways</span></div><div><strong>10+</strong><span>Starter topics</span></div><div><strong>Anytime</strong><span>Learn at your pace</span></div><div><strong>Mobile</strong><span>Made for your phone</span></div>
+</section>
+
+<section class="section wrap" id="courses">
+  <div class="section-heading"><div><span class="eyebrow">START LEARNING</span><h2>Choose your learning path</h2><p>Start with a foundation, then work through each topic.</p></div><div class="search-box"><span>⌕</span><input id="courseSearch" type="search" placeholder="Search courses..." aria-label="Search courses"></div></div>
+  <div class="course-tabs"><button class="tab active" data-filter="all">All courses</button><button class="tab" data-filter="pharmacy">Pharmacy students</button><button class="tab" data-filter="technician">Technician students</button></div>
+  <div class="course-grid" id="courseGrid"></div>
+</section>
+
+<section class="section notes-section" id="notes">
+  <div class="wrap">
+    <div class="section-heading"><div><span class="eyebrow">REVISION LIBRARY</span><h2>Study notes</h2><p>Short introductory notes to help you begin your revision.</p></div><div class="search-box"><span>⌕</span><input id="noteSearch" type="search" placeholder="Search notes..." aria-label="Search notes"></div></div>
+    <div class="notes-layout"><div class="note-list" id="noteList"></div><article class="note-reader" id="noteReader"><span class="eyebrow">SELECT A NOTE</span><h3>Your next study session starts here.</h3><p>Choose a topic from the list to read its starter notes.</p></article></div>
+  </div>
+</section>
+
+<section class="section wrap quiz-section" id="quiz">
+  <div class="quiz-intro"><span class="eyebrow">CHECK YOUR KNOWLEDGE</span><h2>Quick revision quiz</h2><p>Answer a few foundation questions. Your score is for practice, not a formal assessment.</p><div class="quiz-badge">✦ Learn • Practice • Improve</div></div>
+  <div class="quiz-card" id="quizCard"><div class="quiz-top"><span id="questionCount">QUESTION 1 OF 5</span><span id="scoreLabel">Score: 0</span></div><div class="progress"><span id="progressBar"></span></div><h3 id="questionText"></h3><div id="answerOptions" class="answer-options"></div><p id="feedback" class="feedback" aria-live="polite"></p><button id="nextQuestion" class="button primary full" disabled>Check answer first</button></div>
+</section>
+
+<section class="section about-section" id="about"><div class="wrap about-grid"><div class="about-symbol">✚</div><div><span class="eyebrow">OUR MISSION</span><h2>Knowledge that supports better care.</h2><p><b>PharmaConnect Nigeria</b> is an educational project initiated by <b>Yakubu Aliyu Adam</b> to help Pharmacy and Pharmaceutical Technician students find approachable study resources in one place.</p><p>We aim to grow this platform with reviewed notes, more quizzes, and learning resources aligned with students’ curricula.</p><div class="disclaimer"><b>Important:</b> This is an educational starter website, not a substitute for accredited teaching, official clinical guidance, a pharmacist, or a prescriber. Sample notes are introductory and must be checked against trusted textbooks and current local guidance.</div></div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">✚</span><span><b>PharmaConnect</b><small>NIGERIA</small></span></a><span>© <span id="year"></span> PharmaConnect Nigeria</span><a href="#home">Back to top ↑</a></div></footer>
+<div id="modal" class="modal" hidden><div class="modal-backdrop" id="modalBackdrop"></div><section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close">×</button><span class="eyebrow">COURSE OVERVIEW</span><h2 id="modalTitle"></h2><p id="modalDescription"></p><h3>Topics in this course</h3><ul id="modalTopics"></ul><p class="modal-small">This starter course outline is a study guide, not an accredited syllabus.</p><button class="button primary" id="openCourseNotes">Read related notes →</button></section></div>
+<script src="app.js"></script>
+</body>
+</html>

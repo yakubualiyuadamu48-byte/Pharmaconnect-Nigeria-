@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f5b">
+<title>PharmaConnect Nigeria</title>
+<style>
+:root{--green:#087f5b;--dark:#064e3b;--mint:#e8f7f0;--ink:#17212b;--muted:#607078;--white:#fff;--line:#dce8e2}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f5faf7;color:var(--ink)}
+header{background:linear-gradient(135deg,var(--dark),var(--green));color:#fff;padding:25px 18px 22px}
+.wrap{max-width:900px;margin:auto} .brand{font-size:12px;letter-spacing:1.8px;font-weight:800;opacity:.9}
+h1{font-size:27px;margin:8px 0 4px}header p{margin:0;opacity:.92;line-height:1.5}
+main{padding:16px;max-width:900px;margin:auto}.notice{background:#fff6d9;border:1px solid #f0dda0;padding:12px 14px;border-radius:12px;font-size:13px;line-height:1.45;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+button,.tile{font:inherit;cursor:pointer}.tile{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;text-align:left;box-shadow:0 2px 8px #1231;min-height:100px}
+.tile b{display:block;margin:8px 0 3px}.tile span{font-size:13px;color:var(--muted)}
+.icon{font-size:25px}.panel{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+h2{font-size:21px;margin:0 0 12px}h3{font-size:17px;margin:17px 0 7px}p,li{line-height:1.6}.muted{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.pill,.back{border:0;border-radius:999px;padding:10px 13px;background:var(--mint);color:var(--dark);font-weight:700}
+.back{background:var(--green);color:#fff;margin-bottom:12px}
+.card{padding:13px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:#fbfefc}
+input[type=radio]{margin-right:8px}.answer{display:block;padding:9px;border-radius:9px;margin:5px 0;background:#f5faf7}
+.primary{background:var(--green);color:white;border:0;border-radius:10px;padding:11px 15px;font-weight:700}
+footer{text-align:center;color:var(--muted);padding:25px 12px;font-size:12px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">PHARMACONNECT NIGERIA</div><h1>Learn Pharmacy. Connect. Succeed.</h1><p>A learning starter for Pharmacy and Pharmaceutical Technician students.</p></div></header>
+<main>
+<div class="notice"><b>Educational demo:</b> This starter contains sample learning content only. It is not a substitute for an approved curriculum, pharmacist supervision, or professional medical advice. Drug information must be checked by qualified reviewers before publication.</div>
+<section id="home">
+  <h2>Welcome, student 👋</h2>
+  <p class="muted">Choose your learning area to get started.</p>
+  <div class="grid">
+    <button class="tile" onclick="showCourses('pharmacy')"><div class="icon">🎓</div><b>Pharmacy Students</b><span>Core pharmacy learning topics</span></button>
+    <button class="tile" onclick="showCourses('technician')"><div class="icon">🧑‍⚕️</div><b>Pharmaceutical Technician</b><span>Foundational practice and safety</span></button>
+    <button class="tile" onclick="showNotes()"><div class="icon">📚</div><b>Study Notes</b><span>Read introductory notes</span></button>
+    <button class="tile" onclick="showQuiz()"><div class="icon">📝</div><b>Practice Quiz</b><span>Try sample questions</span></button>
+    <button class="tile" onclick="showAbout()"><div class="icon">ℹ️</div><b>About</b><span>Mission and founder</span></button>
+    <button class="tile" onclick="showRoadmap()"><div class="icon">🚀</div><b>Next Development Steps</b><span>Plan for a full app</span></button>
+  </div>
+</section>
+<section id="content" class="panel" hidden></section>
+</main>
+<footer>PharmaConnect Nigeria · Starter prototype · Founder: Yakubu Aliyu Adam</footer>
+<script>
+const content=document.getElementById('content');
+function openPanel(title,body){document.getElementById('home').hidden=true;content.hidden=false;content.innerHTML=`<button class="back" onclick="goHome()">← Home</button><h2>${title}</h2>${body}`}
+function goHome(){content.hidden=true;document.getElementById('home').hidden=false}
+const pharmacy=['Human Anatomy and Physiology','Biochemistry','Pharmaceutical Chemistry','Pharmaceutics','Pharmacology','Microbiology','Clinical Pharmacy','Pharmacognosy','Pharmaceutical Calculations','Pharmacy Practice'];
+const technician=['Fundamentals of Pharmacy','Basic Anatomy and Physiology','Basic Pharmacology','Dosage Forms','Pharmaceutical Calculations','Drug Storage and Handling','Pharmacy Practice','Pharmaceutical Terminology','Medicine Safety','Basic Microbiology'];
+function showCourses(type){let list=type==='pharmacy'?pharmacy:technician;openPanel(type==='pharmacy'?'Pharmacy Courses':'Pharmaceutical Technician Courses',`<p class="muted">Introductory topic list. Course content should be aligned with the approved programme for each institution.</p>${list.map((x,i)=>`<div class="card"><b>${i+1}. ${x}</b><p class="muted">Content outline and reviewed notes can be added here.</p></div>`).join('')}`)}
+function showNotes(){openPanel('Study Notes',`<div class="card"><h3>What is Pharmacy?</h3><p>Pharmacy is a health profession concerned with the preparation, quality, storage, supply and appropriate use of medicines. Pharmacy education combines scientific knowledge with professional practice and patient safety.</p><h3>Why is medicine safety important?</h3><p>Medicines can help treat disease, but incorrect selection, dosing, storage or use can cause harm. Students should learn from approved course materials and consult qualified professionals when needed.</p></div><p class="muted">These are brief sample notes. Add reviewed, properly referenced lessons before launching publicly.</p>`)}
+function showQuiz(){openPanel('Practice Quiz',`<p>Choose one answer for each question, then check your score.</p><form id="quiz"><div class="card"><b>1. What does pharmacology study?</b>${[['a','Plants only'],['b','Drugs and their effects on living organisms'],['c','Weather patterns']].map(([v,t])=>`<label class="answer"><input type="radio" name="q1" value="${v}">${t}</label>`).join('')}</div><div class="card"><b>2. Which practice helps protect medicine quality?</b>${[['a','Storing every medicine in direct sunlight'],['b','Ignoring expiry dates'],['c','Following labelled storage conditions and checking expiry dates']].map(([v,t])=>`<label class="answer"><input type="radio" name="q2" value="${v}">${t}</label>`).join('')}</div><div class="card"><b>3. What should a student do if course material conflicts with an official guideline?</b>${[['a','Verify with the official guideline and a qualified instructor'],['b','Assume any online post is correct'],['c','Share it without checking']].map(([v,t])=>`<label class="answer"><input type="radio" name="q3" value="${v}">${t}</label>`).join('')}</div><button class="primary" type="button" onclick="gradeQuiz()">Check answers</button><div id="result" aria-live="polite"></div></form>`)}
+function gradeQuiz(){let answers={q1:'b',q2:'c',q3:'a'},score=0;for(let q in answers){let el=document.querySelector(`input[name="${q}"]:checked`);if(el&&el.value===answers[q])score++}document.getElementById('result').innerHTML=`<div class="card"><b>Your score: ${score}/3</b><p>${score===3?'Excellent work!':'Review the notes and try again.'}</p><p class="muted">Correct answers: 1-B, 2-C, 3-A.</p></div>`}
+function showAbout(){openPanel('About PharmaConnect Nigeria',`<p><b>Founder:</b> Yakubu Aliyu Adam</p><p>PharmaConnect Nigeria is planned as an educational platform supporting Pharmacy and Pharmaceutical Technician students through study notes, learning resources and practice quizzes.</p><p><b>Mission:</b> Make pharmacy education more accessible and encourage safe, evidence-based learning.</p><p class="muted">Contact details, privacy policy, terms of use and a qualified academic review team should be added before public launch.</p>`)}
+function showRoadmap(){openPanel('Development Roadmap',`<ol><li>Review the learning content with qualified pharmacy educators.</li><li>Build and test the main screens and navigation.</li><li>Add structured lessons, references and more quiz questions.</li><li>Add secure student accounts only if needed, with a privacy policy.</li><li>Test on several Android phones and correct errors.</li><li>Choose a hosting/build platform and check its current fees.</li><li>Prepare a privacy policy, terms and support contact.</li><li>Publish through an appropriate distribution route and apply for advertising only after meeting the provider's policies.</li></ol><p class="muted">This starter does not yet include user accounts, a database, cloud hosting, live community chat, an APK, or advertising. Those require further development.</p>`)}
+</script>
+</body>
+</html>
